@@ -33,6 +33,15 @@ class HashTable:
                 del self.table[key_hash]
                 return True
         return False
+    
+    def delete_by_value(self, value):
+        for pairs in self.table:
+            if not pairs: continue
+            for pair in pairs:
+                if pair[1] == value:
+                    pairs.remove(pair)
+                    return True
+        return False
 
 print(H.get("apple"))   # Виведе: 10
 print(H.get("orange"))  # Виведе: 20
