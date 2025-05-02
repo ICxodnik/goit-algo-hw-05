@@ -39,11 +39,13 @@ def rabin_karp_search(main_string, substring):
 
     return -1
 
-main_string = "Being a developer is not easy"
-substring = "developer"
+if __name__ == "__main__": 
+    
+    main_string = "Being a developer is not easy"
+    substring = "developer"
 
-position = rabin_karp_search(main_string, substring)
-if position != -1:
-    print(f"Substring found at index {position}")
-else:
-    print("Substring not found")
+    position = rabin_karp_search(main_string, substring)
+    if position != -1:
+        print(f"Substring found at index {position}")
+    else:
+        print("Substring not found")
