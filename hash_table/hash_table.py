@@ -3,6 +3,10 @@ class HashTable:
         self.size = size
         self.table = [[] for _ in range(self.size)]
 
+    def __str__(self):
+        output = [f"{i}: {pairs}" for i, pairs in enumerate(self.table)]
+        return "\n".join(output) if output else "HashTable is empty"
+
     def hash_function(self, key):
         return hash(key) % self.size
 
