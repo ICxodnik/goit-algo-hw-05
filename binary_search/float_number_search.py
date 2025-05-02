@@ -2,10 +2,12 @@ def binary_search(arr, x):
     low = 0
     high = len(arr) - 1
     mid = 0
+    operation_amount = 0
  
     while low <= high:
  
         mid = (high + low) // 2
+        operation_amount += 1
  
         # якщо x більше за значення посередині списку, ігноруємо ліву половину
         if arr[mid] < x:
@@ -17,15 +19,13 @@ def binary_search(arr, x):
  
         # інакше x присутній на позиції і повертаємо його
         else:
-            return mid
+            return operation_amount, arr[mid]
  
     # якщо елемент не знайдений
-    return -1
+    return operation_amount, arr[low] 
 
-arr = [2, 3, 4, 10, 40]
-x = 10
-result = binary_search(arr, x)
-if result != -1:
-    print(f"Element is present at index {result}")
-else:
-    print("Element is not present in array")
+arr = [2.1, 2.4, 3.2, 3.4, 3.6, 5.5, 10.0]
+x = 5.7
+operation_amount, el  = binary_search(arr, x)
+print(f"Next-closest element is {el}, operations {operation_amount}")
+
