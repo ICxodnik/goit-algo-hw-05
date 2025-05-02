@@ -26,6 +26,7 @@ class HashTable:
         for pair in self.table[key_hash]:
             if pair[0] == key:
                 return pair[1]
+    
     def delete_by_key(self, key):
         key_hash = self.hash_function(key)
         for pair in self.table[key_hash]:
@@ -43,6 +44,17 @@ class HashTable:
                     return True
         return False
 
-print(H.get("apple"))   # Виведе: 10
-print(H.get("orange"))  # Виведе: 20
-print(H.get("banana"))  # Виведе: 30
+if __name__ == "__main__":   
+    H = HashTable(5)
+    H.insert("apple", 10)
+    H.insert("orange", 20)
+    H.insert("banana", 30)
+    print(H)
+
+    print(H.get("apple"))   # Виведе: 10
+    print(H.get("orange"))  # Виведе: 20
+    print(H.get("banana"))  # Виведе: 30
+
+    H.delete_by_key("apple")
+    H.delete_by_value(20)
+    print(H)
